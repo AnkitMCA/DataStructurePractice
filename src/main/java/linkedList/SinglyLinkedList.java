@@ -235,6 +235,17 @@ public class SinglyLinkedList {
         return length;
     }
 
+
+    public static boolean searchDataExistsInLinkedListOrNot(SinglyLinkedList list, int data) {
+        ListNode current = list.head;
+        while (current != null) {
+            if (current.data == data)
+                return true;
+            current = current.next;
+        }
+        return false;
+    }
+
     /**
      * The entry point of application.
      *
@@ -269,6 +280,12 @@ public class SinglyLinkedList {
         printList(singlyLinkedList);
 
         System.out.println("\nLength of the SinglyLinkedList : " + lengthOfList(singlyLinkedList));
+
+        if (searchDataExistsInLinkedListOrNot(singlyLinkedList, 3)) {
+            System.out.println("Element exist in Linked List");
+        } else {
+            System.out.println("Element does not exist in Linked List");
+        }
 
     }
 }
