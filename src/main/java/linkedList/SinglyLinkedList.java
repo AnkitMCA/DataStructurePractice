@@ -134,6 +134,76 @@ public class SinglyLinkedList {
     }
 
     /**
+     * Delete first node.
+     *
+     * @param list the list
+     */
+    public static void deleteFirstNode(SinglyLinkedList list) {
+        if (list.head == null) {
+            System.out.println("\nThere is no element in the Linked List");
+        } else {
+            ListNode currentNode = list.head;
+            ListNode nextNode = currentNode.next;
+            System.out.println("\nDelete First Node with data : " + currentNode.data);
+            list.head = nextNode;
+        }
+    }
+
+    /**
+     * Delete last node.
+     *
+     * @param list the list
+     */
+    public static void deleteLastNode(SinglyLinkedList list) {
+        if (list.head == null) {
+            System.out.println("\nThere is no element in the Linked List");
+        } else {
+            ListNode currentNode = list.head;
+            if (currentNode.next == null) {
+                System.out.println("\nDelete Last Node with data : " + currentNode.data);
+                list.head = null;
+                return;
+            }
+            ListNode lastNode = list.head;
+            while (lastNode.next != null) {
+                currentNode = lastNode;
+                lastNode = lastNode.next;
+            }
+            System.out.println("\nDelete Last Node with data : " + lastNode.data);
+            currentNode.next = null;
+        }
+    }
+
+    /**
+     * Delete node with position.
+     *
+     * @param list     the list
+     * @param position the position
+     */
+    public static void deleteNodeWithPosition(SinglyLinkedList list, int position) {
+        if (list.head == null) {
+            System.out.println("\nThere is no element in the Linked List");
+        } else {
+            if (position == 1) {
+                ListNode currentNode = list.head;
+                ListNode nextNode = currentNode.next;
+                System.out.println("\nDelete Node at position " + position + " with data : " + currentNode.data);
+                list.head = nextNode;
+                return;
+            }
+            ListNode currentNode = list.head;
+            ListNode deleteNode = list.head;
+            for (int i = 1; i < position; i++) {
+                currentNode = deleteNode;
+                deleteNode = deleteNode.next;
+            }
+            System.out.println("\nDelete Node at position " + position + " with data : " + currentNode.next.data);
+            currentNode.next = deleteNode.next;
+        }
+    }
+
+
+    /**
      * Print list.
      *
      * @param list the list
@@ -178,16 +248,23 @@ public class SinglyLinkedList {
         singlyLinkedList = insertAtEnd(singlyLinkedList, 3);
         singlyLinkedList = insertAtEnd(singlyLinkedList, 4);
         singlyLinkedList = insertAtEnd(singlyLinkedList, 5);
-        singlyLinkedList = insertAtEnd(singlyLinkedList, 6);
-        singlyLinkedList = insertAtEnd(singlyLinkedList, 7);
-        singlyLinkedList = insertAtEnd(singlyLinkedList, 8);
-        singlyLinkedList = insertAtEnd(singlyLinkedList, 9);
-        singlyLinkedList = insertAtEnd(singlyLinkedList, 10);
 
-        singlyLinkedList = insertAtBeginning(singlyLinkedList, 11);
+        singlyLinkedList = insertAtBeginning(singlyLinkedList, 99);
 
-        // linked list start from index 1 for this position value
-        singlyLinkedList = insertAfterPosition(singlyLinkedList, 12, 1);
+        /* linked list start from index 1 for this position value */
+        singlyLinkedList = insertAfterPosition(singlyLinkedList, 100, 3);
+
+        printList(singlyLinkedList);
+
+        deleteFirstNode(singlyLinkedList);
+
+        printList(singlyLinkedList);
+
+        deleteLastNode(singlyLinkedList);
+
+        printList(singlyLinkedList);
+
+        deleteNodeWithPosition(singlyLinkedList, 3);
 
         printList(singlyLinkedList);
 
