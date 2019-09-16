@@ -236,6 +236,13 @@ public class SinglyLinkedList {
     }
 
 
+    /**
+     * Search data exists in linked list or not boolean.
+     *
+     * @param list the list
+     * @param data the data
+     * @return the boolean
+     */
     public static boolean searchDataExistsInLinkedListOrNot(SinglyLinkedList list, int data) {
         ListNode current = list.head;
         while (current != null) {
