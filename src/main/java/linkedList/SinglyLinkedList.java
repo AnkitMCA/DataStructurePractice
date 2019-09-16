@@ -25,6 +25,7 @@ public class SinglyLinkedList {
          */
         public ListNode(int data) {
             this.data = data;
+            next = null;
         }
 
         /**
@@ -288,7 +289,8 @@ public class SinglyLinkedList {
 
         System.out.println("\nLength of the SinglyLinkedList : " + lengthOfList(singlyLinkedList));
 
-        if (searchDataExistsInLinkedListOrNot(singlyLinkedList, 3)) {
+        boolean exist = searchDataExistsInLinkedListOrNot(singlyLinkedList, 3);
+        if (exist) {
             System.out.println("Element exist in Linked List");
         } else {
             System.out.println("Element does not exist in Linked List");
