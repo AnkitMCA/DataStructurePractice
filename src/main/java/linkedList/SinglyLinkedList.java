@@ -28,45 +28,6 @@ public class SinglyLinkedList {
             next = null;
         }
 
-        /**
-         * Gets data.
-         *
-         * @return the data
-         */
-        public int getData() {
-            return data;
-        }
-
-        /**
-         * Sets data.
-         *
-         * @param data the data
-         * @return the data
-         */
-        public ListNode setData(int data) {
-            this.data = data;
-            return this;
-        }
-
-        /**
-         * Gets next.
-         *
-         * @return the next
-         */
-        public ListNode getNext() {
-            return next;
-        }
-
-        /**
-         * Sets next.
-         *
-         * @param next the next
-         * @return the next
-         */
-        public ListNode setNext(ListNode next) {
-            this.next = next;
-            return this;
-        }
     }
 
     /**
