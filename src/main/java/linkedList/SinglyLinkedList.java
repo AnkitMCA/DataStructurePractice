@@ -229,21 +229,21 @@ public class SinglyLinkedList {
         singlyLinkedList = insertAtEnd(singlyLinkedList, 4);
         singlyLinkedList = insertAtEnd(singlyLinkedList, 5);
 
-        singlyLinkedList = insertAtBeginning(singlyLinkedList, 99);
+//        singlyLinkedList = insertAtBeginning(singlyLinkedList, 99);
 
         /* linked list start from index 1 for this position value */
-        singlyLinkedList = insertAfterPosition(singlyLinkedList, 100, 3);
+//        singlyLinkedList = insertAfterPosition(singlyLinkedList, 100, 3);
 
+//        printList(singlyLinkedList);
+//
+//        deleteFirstNode(singlyLinkedList);
+//
+//        printList(singlyLinkedList);
+
+//        deleteLastNode(singlyLinkedList);
+//
         printList(singlyLinkedList);
-
-        deleteFirstNode(singlyLinkedList);
-
-        printList(singlyLinkedList);
-
-        deleteLastNode(singlyLinkedList);
-
-        printList(singlyLinkedList);
-
+//
         deleteNodeWithPosition(singlyLinkedList, 3);
 
         printList(singlyLinkedList);
