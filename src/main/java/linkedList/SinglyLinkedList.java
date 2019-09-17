@@ -9,7 +9,7 @@ public class SinglyLinkedList {
     /**
      * The Head.
      */
-    ListNode head;
+    ListNode head = null;
 
     /**
      * The type List node.
@@ -57,6 +57,7 @@ public class SinglyLinkedList {
      * @param position the position
      * @return the singly linked list
      */
+    //    TODO handle position value zero, negative or out of index from list.
     public static SinglyLinkedList insertAfterPosition(SinglyLinkedList list, int data, int position) {
         ListNode node = new ListNode(data);
         if (position == 0) {
