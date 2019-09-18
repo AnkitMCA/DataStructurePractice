@@ -47,6 +47,7 @@ public class StackImplUsingDynamicArray {
             arr = createArray(arr);
         }
         arr[++top] = item;
+        System.out.println(item + " pushed into stack.");
         return arr;
     }
 
@@ -59,11 +60,15 @@ public class StackImplUsingDynamicArray {
     static int pop(int[] arr) {
         if (top < 0) {
             System.out.println("Stack Underflow.");
-            return 0;
+            return Integer.MIN_VALUE;
         } else {
             int item = arr[top--];
             return item;
         }
+    }
+
+    static int peek(int[] arr) {
+        return arr[top];
     }
 
     /**
@@ -94,10 +99,7 @@ public class StackImplUsingDynamicArray {
         arr = push(arr, 17);
         arr = push(arr, 18);
 
-        System.out.print("Array : ");
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(arr[i] + " ");
-        }
+        System.out.println("\nTop item of Stack : " + peek(arr));
 
         System.out.println("\nPop item with value : " + pop(arr));
         System.out.println("Pop item with value : " + pop(arr));
