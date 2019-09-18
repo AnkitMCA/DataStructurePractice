@@ -50,7 +50,7 @@ public class StackImplUsingSimpleArray {
     int pop() {
         if (top < 0) {
             System.out.println("Stack Underflow.");
-            return 0;
+            return Integer.MIN_VALUE;
         } else {
             int item = arr[top--];
             return item;
@@ -65,7 +65,7 @@ public class StackImplUsingSimpleArray {
     int peek() {
         if (top < 0) {
             System.out.println("Stack Underflow.");
-            return 0;
+            return Integer.MIN_VALUE;
         } else {
             int item = arr[top];
             return item;
