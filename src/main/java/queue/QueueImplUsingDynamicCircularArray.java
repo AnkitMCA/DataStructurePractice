@@ -1,20 +1,48 @@
 package main.java.queue;
 
+/**
+ * The type Queue impl using dynamic circular array.
+ */
 public class QueueImplUsingDynamicCircularArray {
 
+    /**
+     * The Increase array size by.
+     */
     static final int INCREASE_ARRAY_SIZE_BY = 5;
 
     private int capacity;
+    /**
+     * The Queue array.
+     */
     int queueArray[];
+    /**
+     * The Front.
+     */
     int front = 0;
+    /**
+     * The Rear.
+     */
     int rear = -1;
+    /**
+     * The Current size.
+     */
     int currentSize = 0;
 
+    /**
+     * Instantiates a new Queue impl using dynamic circular array.
+     *
+     * @param queueSize the queue size
+     */
     public QueueImplUsingDynamicCircularArray(int queueSize) {
         this.capacity = queueSize;
         queueArray = new int[this.capacity];
     }
 
+    /**
+     * Enqueue.
+     *
+     * @param item the item
+     */
     public void enqueue(int item) {
         if (isQueueFull()) {
             System.out.println("\nOverflow state. Increase capacity.");
@@ -30,6 +58,9 @@ public class QueueImplUsingDynamicCircularArray {
         }
     }
 
+    /**
+     * Dequeue.
+     */
     public void dequeue() {
         if (isQueueEmpty()) {
             System.out.println("\nQueue is in Underflow state.");
@@ -45,6 +76,11 @@ public class QueueImplUsingDynamicCircularArray {
         }
     }
 
+    /**
+     * Is queue full boolean.
+     *
+     * @return the boolean
+     */
     public boolean isQueueFull() {
         boolean status = false;
         if (currentSize == capacity) {
@@ -53,6 +89,11 @@ public class QueueImplUsingDynamicCircularArray {
         return status;
     }
 
+    /**
+     * Is queue empty boolean.
+     *
+     * @return the boolean
+     */
     public boolean isQueueEmpty() {
         boolean status = false;
         if (currentSize == 0) {
@@ -81,6 +122,11 @@ public class QueueImplUsingDynamicCircularArray {
         this.rear = index;
     }
 
+    /**
+     * Main.
+     *
+     * @param args the args
+     */
     public static void main(String args[]) {
         QueueImplUsingDynamicCircularArray obj = new QueueImplUsingDynamicCircularArray(4);
         System.out.println("Is Queue Empty : " + obj.isQueueEmpty());
