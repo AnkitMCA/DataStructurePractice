@@ -5,27 +5,12 @@ package main.java.queue;
  */
 public class QueueImplUsingDynamicCircularArray {
 
-    /**
-     * The Increase array size by.
-     */
     static final int INCREASE_ARRAY_SIZE_BY = 5;
 
     private int capacity;
-    /**
-     * The Queue array.
-     */
     int queueArray[];
-    /**
-     * The Front.
-     */
     int front = 0;
-    /**
-     * The Rear.
-     */
     int rear = -1;
-    /**
-     * The Current size.
-     */
     int currentSize = 0;
 
     /**
