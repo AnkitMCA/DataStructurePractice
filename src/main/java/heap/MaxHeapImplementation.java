@@ -63,6 +63,43 @@ public class MaxHeapImplementation {
         }
     }
 
+    public int removeMaximumElement() {
+        int popped = heap[1];
+        heap[1] = heap[heapSize--];
+        maxHeapify(1);
+        return popped;
+    }
+
+    private int leftChild(int pos) {
+        return (2 * pos);
+    }
+
+    private int rightChild(int pos) {
+        return (2 * pos) + 1;
+    }
+
+    private boolean isLeafNode(int pos) {
+        if (pos >= (heapSize / 2) && pos <= heapSize) {
+            return true;
+        }
+        return false;
+    }
+
+    private void maxHeapify(int position) {
+        if (isLeafNode(position)) {
+            return;
+        }
+        if (heap[position] < heap[leftChild(position)] || heap[position] < heap[rightChild(position)]) {
+            if (heap[leftChild(position)] > heap[rightChild(position)]) {
+                swap(position, leftChild(position));
+                maxHeapify(leftChild(position));
+            } else {
+                swap(position, rightChild(position));
+                maxHeapify(rightChild(position));
+            }
+        }
+    }
+
     /**
      * The entry point of application.
      *
@@ -84,6 +121,10 @@ public class MaxHeapImplementation {
         obj.insert(15);
         obj.insert(5);
 
+        System.out.println("\nMax-Heap Elements : ");
+        obj.printHeap();
+        System.out.println("\nRemove node with maximum value : " + obj.removeMaximumElement());
+        System.out.println("\nMax-Heap Elements : ");
         obj.printHeap();
     }
 }
