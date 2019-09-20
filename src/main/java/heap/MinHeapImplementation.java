@@ -1,28 +1,41 @@
 package main.java.heap;
 
+/**
+ * The type Min heap implementation.
+ */
 public class MinHeapImplementation {
 
     private static final int FRONT = 1;
-    private static int[] Heap;
-    private int size;
-    private int maxsize;
+    private static int[] heap;
+    private int heapSize;
+    private int maxSize;
 
-    public MinHeapImplementation(int maxsize) {
-        this.maxsize = maxsize;
-        this.size = 0;
-        Heap = new int[this.maxsize + 1];
-        Heap[0] = Integer.MIN_VALUE;
+    /**
+     * Instantiates a new Min heap implementation.
+     *
+     * @param maxSize the max size
+     */
+    public MinHeapImplementation(int maxSize) {
+        this.maxSize = maxSize;
+        this.heapSize = 0;
+        heap = new int[this.maxSize + 1];
+        heap[0] = Integer.MIN_VALUE;
     }
 
+    /**
+     * Insert.
+     *
+     * @param element the element
+     */
     public void insert(int element) {
-        if (size >= maxsize) {
+        if (heapSize >= maxSize) {
             return;
         }
-        size++;
-        Heap[size] = element;
-        int current = size;
+        heapSize++;
+        heap[heapSize] = element;
+        int current = heapSize;
 
-        while (Heap[current] < Heap[parent(current)]) {
+        while (heap[current] < heap[parent(current)]) {
             swap(current, parent(current));
             current = parent(current);
         }
@@ -30,9 +43,9 @@ public class MinHeapImplementation {
 
     private void swap(int position1, int position2) {
         int temp;
-        temp = Heap[position1];
-        Heap[position1] = Heap[position2];
-        Heap[position2] = temp;
+        temp = heap[position1];
+        heap[position1] = heap[position2];
+        heap[position2] = temp;
     }
 
     private int parent(int position) {
@@ -48,30 +61,36 @@ public class MinHeapImplementation {
     }
 
     private boolean isLeafNode(int position) {
-        if (position >= (size / 2) && position <= size) {
+        if (position >= (heapSize / 2) && position <= heapSize) {
             return true;
         }
         return false;
     }
 
+    /**
+     * Print heap.
+     */
     public void printHeap() {
-        for (int i = 1; i <= size / 2; i++) {
-            System.out.print("Parent : " + Heap[i] + "\t");
-            System.out.print("Left Child : " + Heap[2 * i] + "\t");
-            System.out.print("Right Child : " + Heap[2 * i + 1] + "\t\n");
+        for (int i = 1; i <= heapSize / 2; i++) {
+            System.out.print("Parent : " + heap[i] + "\t");
+            System.out.print("Left Child : " + heap[2 * i] + "\t");
+            System.out.print("Right Child : " + heap[2 * i + 1] + "\t\n");
         }
     }
 
+    /**
+     * Min heap.
+     */
     public void minHeap() {
-        for (int position = (size / 2); position >= 1; position--) {
+        for (int position = (heapSize / 2); position >= 1; position--) {
             minHeapify(position);
         }
     }
 
     private void minHeapify(int position) {
         if (!isLeafNode(position)) {
-            if (Heap[position] > Heap[leftChild(position)] || Heap[position] > Heap[rightChild(position)]) {
-                if (Heap[leftChild(position)] < Heap[rightChild(position)]) {
+            if (heap[position] > heap[leftChild(position)] || heap[position] > heap[rightChild(position)]) {
+                if (heap[leftChild(position)] < heap[rightChild(position)]) {
                     swap(position, leftChild(position));
                     minHeapify(leftChild(position));
                 } else {
@@ -82,14 +101,24 @@ public class MinHeapImplementation {
         }
     }
 
-    // TODO Last element of the array found duplicate after removing minimum element.
+    /**
+     * Remove minimum element int.
+     *
+     * @return the int
+     */
+// TODO Last element of the array found duplicate after removing minimum element.
     public int removeMinimumElement() {
-        int popItem = Heap[FRONT];
-        Heap[FRONT] = Heap[size--];
+        int popItem = heap[FRONT];
+        heap[FRONT] = heap[heapSize--];
         minHeapify(FRONT);
         return popItem;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         MinHeapImplementation obj = new MinHeapImplementation(20);
@@ -105,18 +134,18 @@ public class MinHeapImplementation {
         obj.insert(51);
         obj.insert(8);
 
-        System.out.println("Print Heap : ");
+        System.out.println("Print heap : ");
         obj.printHeap();
         obj.minHeap();
-        System.out.println("Print Min-Heap : ");
+        System.out.println("Print Min-heap : ");
         obj.printHeap();
 
-        System.out.println("Remove Root node from Heap with value : " + obj.removeMinimumElement());
+        System.out.println("Remove Root node from heap with value : " + obj.removeMinimumElement());
 
-        System.out.println("Print Heap : ");
+        System.out.println("Print heap : ");
         obj.printHeap();
         obj.minHeap();
-        System.out.println("Print Min-Heap : ");
+        System.out.println("Print Min-heap : ");
         obj.printHeap();
     }
 }
