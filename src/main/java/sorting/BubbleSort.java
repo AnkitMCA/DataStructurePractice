@@ -20,6 +20,23 @@ public class BubbleSort {
         return arr;
     }
 
+   /* public int[] bubbleSortImproved(int arr[]) {
+        int pass, i, temp;
+        boolean swapped = true;
+        for (pass = arr.length - 1; pass >= 0 && swapped; pass--) {
+            swapped = false;
+            for (i = 0; i < pass - 1; i++) {
+                if (arr[i] > arr[i + 1]) {
+                    temp = arr[i];
+                    arr[i] = arr[i + 1];
+                    arr[i + 1] = temp;
+                    swapped = true;
+                }
+            }
+        }
+        return arr;
+    }*/
+
     public static void main(String[] args) {
 
         BubbleSort obj = new BubbleSort();
