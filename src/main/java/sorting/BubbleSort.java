@@ -2,8 +2,17 @@ package main.java.sorting;
 
 import java.util.Arrays;
 
+/**
+ * The type Bubble sort.
+ */
 public class BubbleSort {
 
+    /**
+     * Bubble sort int [ ].
+     *
+     * @param arr the arr
+     * @return the int [ ]
+     */
     public int[] bubbleSort(int arr[]) {
 
         int arrLength = arr.length;
@@ -20,7 +29,13 @@ public class BubbleSort {
         return arr;
     }
 
-   /* public int[] bubbleSortImproved(int arr[]) {
+    /**
+     * Bubble sort improved int [ ].
+     *
+     * @param arr the arr
+     * @return the int [ ]
+     */
+    /*public int[] bubbleSortImproved(int arr[]) {
         int pass, i, temp;
         boolean swapped = true;
         for (pass = arr.length - 1; pass >= 0 && swapped; pass--) {
@@ -37,6 +52,11 @@ public class BubbleSort {
         return arr;
     }*/
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
         BubbleSort obj = new BubbleSort();
