@@ -7,14 +7,31 @@ import java.util.Arrays;
  */
 public class TreeSort {
 
-    BinaryTreeNode root;
+    static int count = 0;
+    static int newArray[] = new int[10];
+    static BinaryTreeNode root;
 
-    class BinaryTreeNode {
+    /**
+     * Instantiates a new Tree sort.
+     */
+    public TreeSort() {
+        root = null;
+    }
+
+    /**
+     * The type Binary tree node.
+     */
+    static class BinaryTreeNode {
 
         int data;
         BinaryTreeNode left;
         BinaryTreeNode right;
 
+        /**
+         * Instantiates a new Binary tree node.
+         *
+         * @param data the data
+         */
         public BinaryTreeNode(int data) {
             this.data = data;
             this.left = null;
@@ -22,11 +39,23 @@ public class TreeSort {
         }
     }
 
-    public void add(int data) {
+    /**
+     * Add.
+     *
+     * @param data the data
+     */
+    public static void add(int data) {
         root = addDataRecursively(root, data);
     }
 
-    public BinaryTreeNode addDataRecursively(BinaryTreeNode current, int data) {
+    /**
+     * Add data recursively binary tree node.
+     *
+     * @param current the current
+     * @param data    the data
+     * @return the binary tree node
+     */
+    public static BinaryTreeNode addDataRecursively(BinaryTreeNode current, int data) {
 
         if (current == null) {
             return new BinaryTreeNode(data);
@@ -42,30 +71,62 @@ public class TreeSort {
         return current;
     }
 
-    public void traverseInOrder(BinaryTreeNode node) {
+    /**
+     * Traverse in order int [ ].
+     *
+     * @param node the node
+     * @return the int [ ]
+     */
+    public static int[] traverseInOrder(BinaryTreeNode node) {
         if (node != null) {
             traverseInOrder(node.left);
-            System.out.print(node.data + " ");
+            newArray[count] = node.data;
+            count++;
             traverseInOrder(node.right);
         }
+        return newArray;
     }
 
-    public void printInOrderTree(TreeSort obj) {
-        traverseInOrder(obj.root);
+    /**
+     * Print in order tree int [ ].
+     *
+     * @param obj the obj
+     * @return the int [ ]
+     */
+    public static int[] printInOrderTree(TreeSort obj) {
+        int arr[] = traverseInOrder(obj.root);
+        return arr;
     }
 
+    /**
+     * Tree sort int [ ].
+     *
+     * @param arr the arr
+     * @return the int [ ]
+     */
+    public static int[] treeSort(int arr[]) {
+        TreeSort obj = new TreeSort();
+        for (int i = 0; i < arr.length; i++) {
+            add(arr[i]);
+        }
+        int arr2[] = printInOrderTree(obj);
+
+        return arr2;
+    }
+
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
 
-        TreeSort obj = new TreeSort();
         int arr[] = {19, 32, 16, 2, 8, 22, 39, 11, 63, 20};
 
         System.out.println("Array Before Sorting : ");
         System.out.println(Arrays.toString(arr));
-
-        for (int i = 0; i < arr.length; i++) {
-            obj.add(arr[i]);
-        }
+        arr = treeSort(arr);
         System.out.println("Array After Sorting : ");
-        obj.printInOrderTree(obj);
+        System.out.println(Arrays.toString(arr));
     }
 }
