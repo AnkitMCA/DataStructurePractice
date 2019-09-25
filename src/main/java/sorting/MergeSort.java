@@ -13,19 +13,21 @@ public class MergeSort {
      * @param arr   the arr
      * @param left  the left
      * @param right the right
+     * @return the int [ ]
      */
-    public void mergeSort(int arr[], int left, int right) {
+    public int[] mergeSort(int arr[], int left, int right) {
 
         if (left < right) {
             int mid = left + (right - left) / 2;
             mergeSort(arr, left, mid);
             mergeSort(arr, mid + 1, right);
 
-            merge(arr, left, mid, right);
+            arr = merge(arr, left, mid, right);
         }
+        return arr;
     }
 
-    private void merge(int[] arr, int left, int mid, int right) {
+    private int[] merge(int[] arr, int left, int mid, int right) {
 
         int n1 = mid - left + 1;
         int n2 = right - mid;
@@ -65,6 +67,8 @@ public class MergeSort {
             j++;
             k++;
         }
+
+        return arr;
     }
 
     /**
