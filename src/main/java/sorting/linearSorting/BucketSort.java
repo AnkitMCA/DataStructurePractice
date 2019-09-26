@@ -35,6 +35,12 @@ public class BucketSort {
         }
     }
 
+    /**
+     * Max value int.
+     *
+     * @param arr the arr
+     * @return the int
+     */
     static int maxValue(int arr[]) {
         int maxValue = 0;
         for (int i = 0; i < arr.length; i++)
