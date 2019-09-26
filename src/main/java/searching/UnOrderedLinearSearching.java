@@ -2,8 +2,18 @@ package main.java.searching;
 
 import java.util.Arrays;
 
+/**
+ * The type Un ordered linear searching.
+ */
 public class UnOrderedLinearSearching {
 
+    /**
+     * Un ordered linear search boolean.
+     *
+     * @param arr            the arr
+     * @param dataToBeSearch the data to be search
+     * @return the boolean
+     */
     public boolean unOrderedLinearSearch(int arr[], int dataToBeSearch) {
         int arrayLength = arr.length;
         boolean flag = false;
@@ -17,6 +27,11 @@ public class UnOrderedLinearSearching {
         return flag;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         UnOrderedLinearSearching obj = new UnOrderedLinearSearching();
         int arr[] = {19, 32, 16, 2, 8, 22, 39, 11, 63, 20};
