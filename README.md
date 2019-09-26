@@ -7,5 +7,5 @@
 ###### 4. Binary Tree Implementation.
 ###### 5. Heap(Min and Max) Implementation.
 ###### 6. Sorting Algorithms Implementation.
-###### 6. Searching Algorithms Implementation.
+###### 7. Searching Algorithms Implementation.
 and more.
