@@ -7,9 +7,6 @@ import java.util.Arrays;
  */
 public class BucketSort {
 
-    //    BUCKETS size be 1 greater than the MAX element of the array.
-    static int BUCKETS = 64;
-
     /**
      * Bucket sort.
      *
@@ -17,7 +14,9 @@ public class BucketSort {
      */
     public void bucketSort(int arr[]) {
         int arrayLength = arr.length;
-        int bucket[] = new int[BUCKETS];
+        int maxValue = maxValue(arr);
+        //    BUCKETS size be 1 greater than the MAX element of the array.
+        int bucket[] = new int[maxValue + 1];
 
         int i, j, k;
         for (j = 0; j < bucket.length; j++) {
@@ -34,6 +33,14 @@ public class BucketSort {
                 arr[i++] = j;
             }
         }
+    }
+
+    static int maxValue(int arr[]) {
+        int maxValue = 0;
+        for (int i = 0; i < arr.length; i++)
+            if (arr[i] > maxValue)
+                maxValue = arr[i];
+        return maxValue;
     }
 
     /**
