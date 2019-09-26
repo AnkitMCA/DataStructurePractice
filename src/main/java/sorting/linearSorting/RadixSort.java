@@ -2,8 +2,17 @@ package main.java.sorting.linearSorting;
 
 import java.util.Arrays;
 
+/**
+ * The type Radix sort.
+ */
 public class RadixSort {
 
+    /**
+     * Radix sort int [ ].
+     *
+     * @param arr the arr
+     * @return the int [ ]
+     */
     public int[] radixSort(int arr[]) {
         int maxValue = maxValue(arr);
         for (int i = 1; maxValue / i > 0; i *= 10) {
@@ -38,6 +47,12 @@ public class RadixSort {
         return arr;
     }
 
+    /**
+     * Max value int.
+     *
+     * @param arr the arr
+     * @return the int
+     */
     static int maxValue(int arr[]) {
         int maxValue = 0;
         for (int i = 0; i < arr.length; i++)
@@ -46,6 +61,11 @@ public class RadixSort {
         return maxValue;
     }
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
         RadixSort obj = new RadixSort();
         int arr[] = {170, 45, 75, 90, 802, 24, 2, 66};
